@@ -287,7 +287,7 @@ NS_ASSUME_NONNULL_END
                     [response setValue:conentLengthSpec forHTTPHeaderField:@"Content-Length"];
                 } else {
                     NSMutableDictionary* userInfo = [NSMutableDictionary dictionary];
-                    userInfo[NSLocalizedDescriptionKey] = [NSString stringWithFormat:NSLocalizedString(@"The requested byte-range %@-%@ / %lu could not be satisfied.",), requestByteRange.firstBytePos, requestByteRange.lastBytePos, fileSize];
+					userInfo[NSLocalizedDescriptionKey] = [NSString stringWithFormat:NSLocalizedString(@"The requested byte-range %@-%@ / %lu could not be satisfied.",), requestByteRange.firstBytePos, requestByteRange.lastBytePos, (unsigned long)fileSize];
                     userInfo[NSURLErrorFailingURLErrorKey] = request.URL;
                     userInfo[NSFilePathErrorKey] = filePath;
                     NSError* rangeError = [NSError errorWithDomain:CRStaticFileManagerErrorDomain code:CRStaticFileManagerRangeNotSatisfiableError userInfo:userInfo];
